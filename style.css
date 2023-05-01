@@ -18,7 +18,7 @@ html, body{
     width: 600px;
     background: #232234;
     padding: 24px;
-    margin: 30x auto;
+    margin: 30px auto;
     border-radius: 25px;
 }
 .container .title {
@@ -68,9 +68,11 @@ html, body{
     position: relative;
     text-align: center;
     width: 600px;
+    margin: 30px auto;
+    font-size: 1rem;
 }
-.buttons .submit-btn{
+.buttons .button{
     position: relative;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.3rem;
 }

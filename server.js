@@ -3,11 +3,11 @@ const bodyParser = require('body-parser');
 const { MongoClient, ObjectId } = require('mongodb');
 
 const app = express();
-app.use(express.static('/Users/tebit/Desktop/Private/DB/'));
+app.use(express.static(__dirname));
 
 // Connection URL and database name
-const url = "mongodb+srv://tebit:Nile%2332713@dbproject.eqmjmq7.mongodb.net/?retryWrites=true&w=majority";
-const dbName = 'SnomedDB';
+const url = "localhost:21017";
+const dbName = 'myDB';
 
 // Use body-parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // Serve the HTML form on GET request to the root URL
 app.get('/', (req, res) => {
    res.setHeader('Content-Type', 'text/html');
-   res.sendFile('/Users/tebit/Desktop/Private/DB/index.html');
+   res.sendFile(__dirname + '/index.html');
 });
 
 // Handle the form submission on POST request to the root URL
@@ -25,7 +25,9 @@ app.post('/submit', async (req, res) => {
    // Get the symptoms from the submitted form data
    const symptoms = req.body.symptoms;
    console.log(symptoms);
-
+   if(symptoms.length === 0){
+      res.send('No disease found.');
+   }else{
    try {
       // Connect to the database and find the matching diseases
       const client = await MongoClient.connect(url, { useNewUrlParser: true });
@@ -81,6 +83,7 @@ app.post('/submit', async (req, res) => {
          res.send('No disease found.');
       }}catch (err) {
       console.error(err);
+   }
    }
 });
 
