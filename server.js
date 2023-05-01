@@ -53,10 +53,10 @@ app.post('/submit', async (req, res) => {
          const htmlResult = `
             <html>
             <head>
-               <title>Matching Diseases</title>
+               <title>Matching Disease</title>
             </head>
             <body>
-               <h1>Matching Diseases:</h1>
+               <h1>Matching Disease:</h1>
                <div>
                   <h2>${matchingSnomed.name} (${matchingSnomed.description})</h2>
                   <p>Snomed Code: ${matchingSnomed.code}</p>
