@@ -5,31 +5,24 @@ const { MongoClient, ObjectId } = require('mongodb');
 const app = express();
 app.use(express.static(__dirname));
 
-// Connection URL and database name
 const url = "localhost:21017";
 const dbName = 'myDB';
 
-// Use body-parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Serve the HTML form on GET request to the root URL
 app.get('/', (req, res) => {
    res.setHeader('Content-Type', 'text/html');
    res.sendFile(__dirname + '/index.html');
 });
 
-// Handle the form submission on POST request to the root URL
-// Handle the form submission on POST request to the root URL
 app.post('/submit', async (req, res) => {
-   // Get the symptoms from the submitted form data
    const symptoms = req.body.symptoms;
    console.log(symptoms);
    if(symptoms.length === 0){
       res.send('No disease found.');
    }else{
    try {
-      // Connect to the database and find the matching diseases
       const client = await MongoClient.connect(url, { useNewUrlParser: true });
       const db = client.db(dbName);
 
@@ -50,7 +43,6 @@ app.post('/submit', async (req, res) => {
       const medicineIds = await db.collection('Snomed_Medicine').distinct('medicine_id', { snomed_id: new ObjectId(matchingSnomed._id) });
       const medicines = await db.collection('Medicine').find({ _id: { $in: medicineIds } }).toArray();
 
-      // Display the matching diseases and their medicines
       console.log('Matching Diseases:');
       if (matchingSnomed) {
          console.log(`${matchingSnomed.name} (${matchingSnomed.description})`);
@@ -87,7 +79,6 @@ app.post('/submit', async (req, res) => {
    }
 });
 
-// Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
    console.log(`Server running on port ${port}`);
