@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select your condition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="myForm" action="/submit" method="post" >
+    <div class="container">
+        <p class="title">Please check all boxes which apply to your condition</p>
+        <div class="input-box-wrapper">
+            <div class="box">
+                <input type="checkbox" name="symptoms" value="Headache" class="checkbox" id="Headache">
+                <label for="Headache">Headache</label>
+            </div>
+            <div class="box">
+                <input type="checkbox" name="symptoms" value="Fever" class="checkbox" id="Fever">
+                <label for="Fever">Fever</label>
+            </div>
+            <div class="box">
+                <input type="checkbox" name="symptoms" value="SoreThroat" class="checkbox" id="SoreThroat">
+                <label for="SoreThroat">Sore Throat</label>
+            </div>
+            <div class="box">
+                <input type="checkbox" name="symptoms" value="SoB" class="checkbox" id="SoB">
+                <label for="SoB">Short of Breath</label>
+            </div>
+            <div class="box">
+                <input type="checkbox" name="symptoms" value="Cough" class="checkbox" id="Cough">
+                <label for="Cough">Cough</label>
+            </div>
+            <div class="box">
+                <input type="checkbox" name="symptoms" value="Stomachache" class="checkbox" id="Stomachache">
+                <label for="Stomachache">Stomachache</label>
+            </div>
+            <div class="box">
+                <input type="checkbox" name="symptoms" value="Diarrhea" class="checkbox" id="Diarrhea">
+                <label for="Diarrhea">Diarrhea</label>
+            </div>
+        </div>
+        <div class="print-values">
+            <p id="valueList"></p>
+        </div>
+    </div>
+    <div class="buttons">
+        <button type="submit" id="submit-btn">Submit</button>
+    </div>
+</form>
+<div id="result"></div>
+<script src="app.js"></script>
+</body>
+</html>

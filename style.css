@@ -1,0 +1,76 @@
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+*{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    position: relative;
+    width: 100%;
+    background: #1e1e2e;
+}
+.container {
+    position: relative;
+    width: 600px;
+    background: #232234;
+    padding: 24px;
+    margin: 30x auto;
+    border-radius: 25px;
+}
+.container .title {
+    color:aliceblue;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 3rem;
+}
+.container .input-box-wrapper{
+    position: relative;
+}
+
+.input-box-wrapper .box{
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #383854;
+    border-bottom: 0;
+    padding: 14px 10px;
+    background: #2F2E46;
+    font-size: 1.3rem;
+
+}
+.input-box-wrapper .box:first-child{
+    border-radius: 15px 15px 0 0 ;
+}
+.input-box-wrapper .box:last-child{
+    border-radius: 0 0 15px 15px ;
+    border-bottom: 1px solid #383854;
+}
+.input-box-wrapper .box label{
+    color: aliceblue;
+    text-anchor: capitalize;
+    margin-left: 20px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+.input-box-wrapper .box .checkbox{
+    position: relative;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+.buttons{
+    position: relative;
+    text-align: center;
+    width: 600px;
+}
+.buttons .submit-btn{
+    position: relative;
+    text-align: center;
+    font-size: 1rem;
+}
